@@ -6,13 +6,15 @@ const app = express();
 const PORT = process.env.PORT || 3000;
 app.use(express.urlencoded({ extended: false }));
 
+app.get("/", (req, res) => {
+  res.send({ status: " app running!!" });
+});
 app.get("/users", (req, res) => {
   const userHtml = `
   <ul>
       ${users.map((user) => `<li>${user.first_name}</li>`).join("")}
   </ul>
   `;
-
   res.send(userHtml);
 });
 // REST APIs
