@@ -1,50 +1,47 @@
-const http = require("http");
+const express = require("express");
 const fs = require("fs");
-const url = require("url");
+const users = require("./users.json");
 
-const myServer = http.createServer((req, res) => {
-  let date = new Date().toUTCString();
-  const Url = url.parse(req.url, true);
+const app = express();
+const PORT = process.env.PORT || 3000;
+app.use(express.urlencoded({ extended: false }));
 
-  console.log(Url);
+app.get("/users", (req, res) => {
+  const userHtml = `
+  <ul>
+      ${users.map((user) => `<li>${user.first_name}</li>`).join("")}
+  </ul>
+  `;
 
-  let logs = `Time : ${date} - request on endpoint ${req.headers.host} ${req.url} \n`;
-
-  if (req.url === "/favicon.ico") return res.end();
-  fs.appendFile("logs.txt", logs, (error, result) => {
-    if (error) {
-      console.log(error);
-    } else {
-      res.end("Happy Hacking!!");
-    }
-  });
-
-  switch (Url.pathname) {
-    case "/about":
-      const username = Url.query.myname;
-      res.end(`${username} | Backend Developer`);
-      break;
-    case "/contact":
-      res.end("@codeguyakash | contact ");
-      break;
-    case "/social":
-      res.end("@codeguyakash | social");
-      break;
-    case "/search":
-      const search = Url.query.search_query;
-      res.end("Your Search Results " + search);
-      break;
-    case "/logs":
-      const log = fs.readFileSync("logs.txt", "utf-8");
-      res.end(log);
-
-      break;
-    default:
-      res.end("404 | Not Found");
-      break;
-  }
+  res.send(userHtml);
+});
+// REST APIs
+app.get("/api/v1/users", (req, res) => {
+  res.json(users);
+});
+app.get("/api/v1/users/:id", (req, res) => {
+  const id = Number(req.params.id);
+  const user = users.find((user) => user.id === id);
+  res.json(user);
 });
 
-myServer.listen(8000, () => {
-  console.log(`Server Running http://localhost:8000`);
+app.post("/api/v1/users", (req, res) => {
+  const body = req.body;
+  users.push({ ...body, id: users.length + 1 });
+
+  fs.writeFile("./users.json", JSON.stringify(users), (error, data) => {
+    res.json({ status: "create user success", id: users.length });
+  });
+});
+
+app.put("/api/v1/users/:id", (req, res) => {
+  res.json({ status: "update status pending" });
+});
+
+app.delete("/api/v1/users/:id", (req, res) => {
+  res.json({ status: "delete status pending" });
+});
+
+app.listen(PORT, () => {
+  console.log(`ping-pong on http://localhost:${PORT}`);
 });
