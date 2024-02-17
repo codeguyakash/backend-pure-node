@@ -1,36 +1,7 @@
-1707979150357 Request Received 
-1707979150533 Request Received 
-1707979155913 Request Received 
-1707979156041 Request Received 
-1707979156662 Request Received 
-1707979156791 Request Received 
-1707979156835 Request Received 
-1707979156962 Request Received 
-1707979156977 Request Received 
-1707979157166 Request Received 
-1707979157212 Request Received 
-1707979157373 Request Received 
-1707979157414 Request Received 
-1707979157562 Request Received 
-1707979157583 Request Received 
-1707979157776 Request Received 
-1707979157899 Request Received 
-1707979158052 Request Received 
-1707979158117 Request Received 
-1707979158286 Request Received 
-1707979159496 Request Received 
-1707979159657 Request Received 
-1707979160346 Request Received 
-1707979160501 Request Received 
-1707979258659 - undefined Request Received 
-1707979258859 - undefined Request Received 
-1707979265456 - undefined Request Received 
-1707979265589 - undefined Request Received 
-1707979329411 - /hello Request Received 
-1707979329580 - /favicon.ico Request Received 
-1707979333880 - / Request Received 
-1707979334009 - /favicon.ico Request Received 
-1707979343022 - /akash Request Received 
-1707979343184 - /favicon.ico Request Received 
-1,707,979,452,248 - /akash Request Received 
-1,707,979,452,546 - /favicon.ico Request Received 
+Time : Sat, 17 Feb 2024 05:25:43 GMT - request on endpoint localhost:8000 /logs 
+Time : Sat, 17 Feb 2024 05:25:46 GMT - request on endpoint localhost:8000 /logs 
+Time : Sat, 17 Feb 2024 05:25:47 GMT - request on endpoint localhost:8000 /logs 
+Time : Sat, 17 Feb 2024 05:26:07 GMT - request on endpoint localhost:8000 /logs 
+Time : Sat, 17 Feb 2024 05:26:08 GMT - request on endpoint localhost:8000 /logs 
+Time : Sat, 17 Feb 2024 05:26:15 GMT - request on endpoint localhost:8000 /akash 
+Time : Sat, 17 Feb 2024 05:26:18 GMT - request on endpoint localhost:8000 /logs 
